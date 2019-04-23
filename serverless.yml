@@ -1,0 +1,50 @@
+service:
+  name: aws-nodejs-typescript
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  addressAdd:
+    handler: handler.addressAdd
+    events:
+      - http:
+          method: post
+          path: addressAdd
+  addresses:
+    handler: handler.addresses
+    events:
+      - http:
+          method: get
+          path: addresses
+  addressGet:
+    handler: handler.addressGet
+    events:
+      - http:
+          method: get
+          path: addressGet
+  addressDelete:
+    handler: handler.addressDelete
+    events:
+      - http:
+          method: post
+          path: addressDelete
+  addressUpdate:
+    handler: handler.addressUpdate
+    events:
+      - http:
+          method: post
+          path: addressUpdate
+  
+Resource:
+    arn:aws:dynamodb:us-east-2:137986027258:table/address
+
+  
+custom:
+    serverless-offline:   ## add this two lines
+        port: 4000        ## bellow "custom:" line

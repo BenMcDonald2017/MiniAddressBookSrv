@@ -1,13 +1,16 @@
 
-import { APIGatewayEvent, Context, Handler, Callback } from 'aws-lambda'
+import { Context, Handler, Callback } from 'aws-lambda'
 import { AddressBook} from '../../../controller/address/index'
 
-export const addressDelete : Handler = (event : APIGatewayEvent, context : Context, cb : Callback) => {
-
-   const addressBook = new AddressBook(null)
-   const result = addressBook.delete('')
+export const addressDelete : Handler = async (event : any, context : Context, cb : Callback) => {
+   interface Address {
+      id: string;
+   }
+   const address: Address = Object.assign({}, event);
+   const addressBook = new AddressBook()
+   const result = await addressBook.delete(address.id)
    console.log(result)
-   
+
     const response = {
       statusCode: 200,
       body: JSON.stringify({

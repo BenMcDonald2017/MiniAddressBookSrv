@@ -15,7 +15,7 @@
               "-f",
               "addressAdd",
               "--data",
-              "{name: 'Si Mona', email: 'si@test.com', phone: '562 (413) 2882'}"
+              "{\"id\": \"abcdefghijk\",\"name\": \"Si Mona\", \"email\": \"si@test.com\", \"phone\": \"562 (413) 2882\"}"
             ],
             "env": {
               "NODE_ENV": "development"
@@ -38,7 +38,7 @@
               "-f",
               "addresses",
               "--data",
-              "{[{ addressId:1, name: 'Si Mona', email: 'si@test.com', phone: '562 (413) 2882'},{ addressId:2, name: 'Si Mona', email: 'si@test.com', phone: '562 (413) 2882'}]}"
+              "{}"
             ],
             "env": {
               "NODE_ENV": "development"
@@ -61,7 +61,7 @@
               "-f",
               "addressDelete",
               "--data",
-              "{addressId=1}"
+              "{\"id\": \"abcdefg\"}"
             ],
             "env": {
               "NODE_ENV": "development"
@@ -82,9 +82,9 @@
               "invoke",
               "local",
               "-f",
-              "addressDelete",
+              "addressGet",
               "--data",
-              "{addressId=1}"
+              "{\"id\": \"abcdefgh\"}"
             ],
             "env": {
               "NODE_ENV": "development"

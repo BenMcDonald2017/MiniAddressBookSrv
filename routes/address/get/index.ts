@@ -1,13 +1,16 @@
-import { APIGatewayEvent, Context, Handler, Callback } from 'aws-lambda'
+import { Context, Handler, Callback } from 'aws-lambda'
 import { AddressBook} from '../../../controller/address/index'
 
-export const addressGet : Handler = (event : APIGatewayEvent, context : Context, cb : Callback) => {
-
-   const addressBook = new AddressBook(null)
-   const result = addressBook.get('')
+export const addressGet : Handler = async (event : any, context : Context, cb : Callback) => {
+   interface Address {
+    id: string;
+   }
+   const address: Address = Object.assign({}, event);
+   const addressBook = new AddressBook()
+   const result = await addressBook.get(address.id)
    console.log(result)
-   
-    const response = {
+
+   const response = {
       statusCode: 200,
       body: JSON.stringify({
         message: 'Go Serverless Webpack (Typescript) v1.0! Your function get executed successfully!',

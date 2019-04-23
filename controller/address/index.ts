@@ -107,9 +107,8 @@ export class AddressBook {
             Key:{
                 "id": address.id,
             },
-            UpdateExpression: "set name = :n, email=:e, phone=:p",
+            UpdateExpression: "set email=:e, phone=:p",
             ExpressionAttributeValues:{
-                ":n":address.name,
                 ":e":address.email,
                 ":p":address.phone,
             },

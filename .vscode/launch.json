@@ -107,7 +107,7 @@
               "-f",
               "addressUpdate",
               "--data",
-              "{ addressId:1, name: 'Si Mona update', email: 'si@test.com', phone: '562 (413) 2882'}"
+              "{\"id\": \"abcdefghijk\",\"name\": \"Si Mona\", \"email\": \"si@test.com\", \"phone\": \"562 (413) 2882\"}"
             ],
             "env": {
               "NODE_ENV": "development"
